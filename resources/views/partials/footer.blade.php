@@ -32,7 +32,7 @@
             <div>
                 <h3>Maps</h3>
                 <div class="footer-map">
-                    <a href="https://maps.app.goo.gl/1nirn9e9dGrRfPRh9" target="_blank" style="display: block; position: relative;">
+                    <a href="https://share.google/C8OGMMI9AXBRsSvLt" target="_blank" style="display: block; position: relative;">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.759663315466!2d109.22896!3d-7.413877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6552d4e8c8e8e1%3A0x8e8e8e8e8e8e8e8e!2sGaleri%20Eco%2021!5e0!3m2!1sen!2sid!4v1629000000000" width="100%" height="150" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </a>
                 </div>
