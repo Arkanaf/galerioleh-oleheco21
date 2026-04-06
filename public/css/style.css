@@ -25,6 +25,10 @@
     --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.06);
     --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.14);
     --t: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --product-card-bg: #fdf6ed;
+    --product-card-bg-hover: #fffefb;
+    --product-card-border: rgba(200, 155, 100, 0.28);
+    --product-card-border-hover: rgba(249, 115, 22, 0.38);
 }
 
 html {
@@ -1272,16 +1276,17 @@ section:last-child::after {
 
 /* FIXED: Product card with perfect image sizing */
 .product-card {
-    background: white;
+    position: relative;
+    background: var(--product-card-bg);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     transition: var(--t);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--product-card-border);
     height: 100%;
     animation: fadeInUp 0.8s ease;
     animation-fill-mode: both;
@@ -1304,7 +1309,9 @@ section:last-child::after {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+    box-shadow: 0 24px 48px rgba(249, 115, 22, 0.22);
+    border-color: var(--product-card-border-hover);
+    background: var(--product-card-bg-hover);
 }
 
 .product-card:hover::before {
@@ -1431,7 +1438,7 @@ section:last-child::after {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-top: 1px solid rgba(45, 26, 15, 0.08);
     padding-top: 12px;
     margin-top: auto;
 }
@@ -1465,15 +1472,17 @@ section:last-child::after {
 
 /* FIXED: Small product card with perfect image sizing */
 .product-card-small {
-    background: white;
+    position: relative;
+    background: var(--product-card-bg);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
     transition: var(--t);
     text-decoration: none;
     color: inherit;
     display: flex;
     flex-direction: column;
+    border: 1px solid var(--product-card-border);
     height: 100%;
     animation: fadeInUp 0.8s ease;
     animation-fill-mode: both;
@@ -1486,7 +1495,9 @@ section:last-child::after {
 
 .product-card-small:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(249, 115, 22, 0.12);
+    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+    border-color: var(--product-card-border-hover);
+    background: var(--product-card-bg-hover);
 }
 
 /* FIXED: Small card image container with aspect ratio */
@@ -1726,6 +1737,20 @@ section:last-child::after {
     background: linear-gradient(135deg, #E4405F, #833AB4, #FD1D1D);
     border-color: #E4405F;
     box-shadow: 0 8px 20px rgba(228, 64, 95, 0.3);
+}
+
+/* LinkedIn specific styling */
+.follow-icon-linkedin:hover {
+    background: linear-gradient(135deg, #0A66C2, #004182);
+    border-color: #0A66C2;
+    box-shadow: 0 8px 20px rgba(10, 102, 194, 0.35);
+}
+
+/* Shopee specific styling */
+.follow-icon-shopee:hover {
+    background: linear-gradient(135deg, #EE4D2D, #D73211);
+    border-color: #EE4D2D;
+    box-shadow: 0 8px 20px rgba(238, 77, 45, 0.35);
 }
 
 .follow-icon:not(:hover) svg,
@@ -1990,27 +2015,30 @@ section:last-child::after {
 /* Landing page CTA buttons: symmetric widths */
 .cta-section .cta-buttons {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 16px;
-    max-width: 720px;
+    max-width: 1080px;
     margin: 0 auto;
 }
 
 .cta-section .cta-buttons > .btn-whatsapp,
+.cta-section .cta-buttons > .btn-shopee,
 .cta-section .cta-buttons > .btn-tokopedia {
     width: 100%;
     justify-content: center;
     text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
     .cta-section .cta-buttons {
         grid-template-columns: 1fr;
+        max-width: 420px;
     }
 }
 
 .btn-whatsapp,
-.btn-tokopedia {
+.btn-tokopedia,
+.btn-shopee {
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -2027,12 +2055,14 @@ section:last-child::after {
 }
 
 .btn-whatsapp .btn-icon,
-.btn-tokopedia .btn-icon {
+.btn-tokopedia .btn-icon,
+.btn-shopee .btn-icon {
     width: 20px;
     height: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
 }
 
 .btn-whatsapp img.btn-icon,
@@ -2041,10 +2071,20 @@ section:last-child::after {
     object-fit: contain;
 }
 
+.btn-shopee svg.btn-icon {
+    display: block;
+}
+
 .btn-whatsapp {
     background: linear-gradient(135deg, #25D366, #128C7E);
     color: #ffffff;
     box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+}
+
+.btn-shopee {
+    background: linear-gradient(135deg, #EE4D2D, #D73211);
+    color: #ffffff;
+    box-shadow: 0 10px 20px rgba(238, 77, 45, 0.35);
 }
 
 .btn-tokopedia {
@@ -2054,7 +2094,8 @@ section:last-child::after {
 }
 
 .btn-whatsapp::before,
-.btn-tokopedia::before {
+.btn-tokopedia::before,
+.btn-shopee::before {
     content: '';
     position: absolute;
     top: 0;
@@ -2066,13 +2107,15 @@ section:last-child::after {
 }
 
 .btn-whatsapp:hover,
-.btn-tokopedia:hover {
+.btn-tokopedia:hover,
+.btn-shopee:hover {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .btn-whatsapp:hover::before,
-.btn-tokopedia:hover::before {
+.btn-tokopedia:hover::before,
+.btn-shopee:hover::before {
     left: 100%;
 }
 
@@ -2342,7 +2385,8 @@ section:last-child::after {
     }
     
     .btn-whatsapp,
-    .btn-tokopedia {
+    .btn-tokopedia,
+    .btn-shopee {
         width: 100%;
         max-width: 220px;
         justify-content: center;
@@ -3036,10 +3080,12 @@ section:last-child::after {
 }
 
 .related-card {
-    background: white;
+    position: relative;
+    background: var(--product-card-bg);
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    border: 1px solid var(--product-card-border);
     transition: var(--t);
     text-decoration: none;
     color: inherit;
@@ -3049,7 +3095,9 @@ section:last-child::after {
 
 .related-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(249, 115, 22, 0.12);
+    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+    border-color: var(--product-card-border-hover);
+    background: var(--product-card-bg-hover);
 }
 
 .related-card .product-card-image-wrap {
@@ -4131,19 +4179,21 @@ section:last-child::after {
 }
 
 .product-mini-card {
-    background: white;
+    background: var(--product-card-bg);
     border-radius: 18px;
     overflow: hidden;
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--product-card-border);
 }
 
 .product-mini-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 16px 32px rgba(249, 115, 22, 0.12);
+    box-shadow: 0 20px 40px rgba(249, 115, 22, 0.2);
+    border-color: var(--product-card-border-hover);
+    background: var(--product-card-bg-hover);
 }
 
 .mini-image-wrap {

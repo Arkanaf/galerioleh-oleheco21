@@ -1,20 +1,18 @@
-@extends('layouts.app')
-
-@php
+<?php
 use App\Helpers\ContentHelper;
 $products = \App\Models\Product::all();
-@endphp
+?>
 
-@section('title', 'Beranda')
+<?php $__env->startSection('title', 'Beranda'); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>{!! str_replace('<br>', '<br>', nl2br(e(ContentHelper::get('hero_title', 'Oleh-oleh <span class="highlight">Khas Banyumas</span> Asli!')))) !!}</h1>
-            <p>{{ ContentHelper::get('hero_subtitle', 'Nikmati kelezatan khas Banyumas, langsung dari UMKM lokal kepercayaan Anda') }}</p>
+            <h1><?php echo str_replace('<br>', '<br>', nl2br(e(ContentHelper::get('hero_title', 'Oleh-oleh <span class="highlight">Khas Banyumas</span> Asli!')))); ?></h1>
+            <p><?php echo e(ContentHelper::get('hero_subtitle', 'Nikmati kelezatan khas Banyumas, langsung dari UMKM lokal kepercayaan Anda')); ?></p>
             
             <a href="#produk" class="btn-primary">
                 Order Sekarang
@@ -25,17 +23,17 @@ $products = \App\Models\Product::all();
             
             <div class="hero-stats">
                 <div class="hero-avatars">
-                    <img src="{{ asset('images/icon/woman1_thumb.jpg') }}" alt="Pelanggan 1" width="36" height="36" decoding="async">
-                    <img src="{{ asset('images/icon/woman2_thumb.jpg') }}" alt="Pelanggan 2" width="36" height="36" decoding="async">
-                    <img src="{{ asset('images/icon/men_thumb.jpg') }}" alt="Pelanggan 3" width="36" height="36" decoding="async">
+                    <img src="<?php echo e(asset('images/icon/woman1_thumb.jpg')); ?>" alt="Pelanggan 1" width="36" height="36" decoding="async">
+                    <img src="<?php echo e(asset('images/icon/woman2_thumb.jpg')); ?>" alt="Pelanggan 2" width="36" height="36" decoding="async">
+                    <img src="<?php echo e(asset('images/icon/men_thumb.jpg')); ?>" alt="Pelanggan 3" width="36" height="36" decoding="async">
                 </div>
-                <span>{{ ContentHelper::get('hero_stock_text', '10k+ Pelanggan Mempercayai') }}</span>
+                <span><?php echo e(ContentHelper::get('hero_stock_text', '10k+ Pelanggan Mempercayai')); ?></span>
             </div>
         </div>
         
         <div class="hero-image">
             <div class="image-card hero-card">
-                <img src="{{ ContentHelper::getImage('hero_image', asset('images/toko/foto_depan_toko.jpg')) }}" alt="Toko Galeri Eco 21">
+                <img src="<?php echo e(ContentHelper::getImage('hero_image', asset('images/toko/foto_depan_toko.jpg'))); ?>" alt="Toko Galeri Eco 21">
             </div>
         </div>
     </div>
@@ -47,13 +45,13 @@ $products = \App\Models\Product::all();
         <div class="stats-grid">
             <div class="stat-card">
                 <div class="label">Berdiri</div>
-                <div class="value">{{ ContentHelper::get('stats_year', '2021') }}</div>
+                <div class="value"><?php echo e(ContentHelper::get('stats_year', '2021')); ?></div>
                 <div class="unit">Tahun</div>
             </div>
             
             <div class="stat-card">
                 <div class="label">Total Pelanggan</div>
-                <div class="value">{{ ContentHelper::get('stats_customers', '100k+') }}</div>
+                <div class="value"><?php echo e(ContentHelper::get('stats_customers', '100k+')); ?></div>
                 <div class="unit">Produk</div>
             </div>
             
@@ -70,10 +68,10 @@ $products = \App\Models\Product::all();
 <section class="about" id="tentang">
     <div class="container">
         <div class="about-content">
-            <h2>{{ ContentHelper::get('about_title', 'Tentang') }} <span class="highlight">Kami</span></h2>
-            <p class="subtitle">{{ ContentHelper::get('about_subtitle', 'Selamat Datang di Galeri Eco 21') }}</p>
+            <h2><?php echo e(ContentHelper::get('about_title', 'Tentang')); ?> <span class="highlight">Kami</span></h2>
+            <p class="subtitle"><?php echo e(ContentHelper::get('about_subtitle', 'Selamat Datang di Galeri Eco 21')); ?></p>
             
-            <p>{{ ContentHelper::get('about_description', 'Galeri Eco21 adalah pusat oleh-oleh khas Purwokerto/Banyumas yang berlokasi di Jl. Mayjend Sutoyo No.27, Sokanegara. Tempat ini menyediakan berbagai jenis makanan khas, seperti getuk, gethuk goreng, mendoan, carang-carang, makanan khas, dan mendoan, menjadikannya destinasi belanja lengkap dan modern bagi wisatawan.') }}</p>
+            <p><?php echo e(ContentHelper::get('about_description', 'Galeri Eco21 adalah pusat oleh-oleh khas Purwokerto/Banyumas yang berlokasi di Jl. Mayjend Sutoyo No.27, Sokanegara. Tempat ini menyediakan berbagai jenis makanan khas, seperti getuk, gethuk goreng, mendoan, carang-carang, makanan khas, dan mendoan, menjadikannya destinasi belanja lengkap dan modern bagi wisatawan.')); ?></p>
             
             <div class="features">
                 <div class="feature-card">
@@ -83,8 +81,8 @@ $products = \App\Models\Product::all();
                         </svg>
                     </div>
                     <div>
-                        <h3>{{ ContentHelper::get('about_feature_1_title', 'Dikurasi Dengan Hati') }}</h3>
-                        <p>{{ ContentHelper::get('about_feature_1_desc', 'Hanya produk dengan standar rasa dan kebersihan terbaik yang masuk ke rak kami.') }}</p>
+                        <h3><?php echo e(ContentHelper::get('about_feature_1_title', 'Dikurasi Dengan Hati')); ?></h3>
+                        <p><?php echo e(ContentHelper::get('about_feature_1_desc', 'Hanya produk dengan standar rasa dan kebersihan terbaik yang masuk ke rak kami.')); ?></p>
                     </div>
                 </div>
                 
@@ -95,8 +93,8 @@ $products = \App\Models\Product::all();
                         </svg>
                     </div>
                     <div>
-                        <h3>{{ ContentHelper::get('about_feature_2_title', 'Pemberdayaan Lokal') }}</h3>
-                        <p>{{ ContentHelper::get('about_feature_2_desc', 'Mendukung ekonomi warga dengan reseller langsung dari produsen pertama.') }}</p>
+                        <h3><?php echo e(ContentHelper::get('about_feature_2_title', 'Pemberdayaan Lokal')); ?></h3>
+                        <p><?php echo e(ContentHelper::get('about_feature_2_desc', 'Mendukung ekonomi warga dengan reseller langsung dari produsen pertama.')); ?></p>
                     </div>
                 </div>
             </div>
@@ -104,10 +102,10 @@ $products = \App\Models\Product::all();
         
             <div class="about-images">
             <div class="image-card">
-                <img src="{{ ContentHelper::getImage('about_image_1', asset('images/toko/foto1.jpg')) }}" alt="Produk 1">
+                <img src="<?php echo e(ContentHelper::getImage('about_image_1', asset('images/toko/foto1.jpg'))); ?>" alt="Produk 1">
             </div>
             <div class="image-card second">
-                <img src="{{ ContentHelper::getImage('about_image_2', asset('images/toko/foto2.jpg')) }}" alt="Produk 2">
+                <img src="<?php echo e(ContentHelper::getImage('about_image_2', asset('images/toko/foto2.jpg'))); ?>" alt="Produk 2">
             </div>
         </div>
     </div>
@@ -119,7 +117,7 @@ $products = \App\Models\Product::all();
     <div class="container showcase-container">
         <div class="showcase-image">
             <div class="image-card">
-                <img src="{{ ContentHelper::getImage('showcase_image', asset('images/toko/foto4.jpg')) }}" alt="Galeri Eco 21">
+                <img src="<?php echo e(ContentHelper::getImage('showcase_image', asset('images/toko/foto4.jpg'))); ?>" alt="Galeri Eco 21">
             </div>
         </div>
         
@@ -129,7 +127,7 @@ $products = \App\Models\Product::all();
             <div class="accordion-container">
                 <div class="accordion-item">
                     <div class="accordion-header active">
-                        <div class="accordion-title">{{ ContentHelper::get('advantage_1_title', 'Buatan Lokal!') }}</div>
+                        <div class="accordion-title"><?php echo e(ContentHelper::get('advantage_1_title', 'Buatan Lokal!')); ?></div>
                         <button class="accordion-toggle open">
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
@@ -137,13 +135,13 @@ $products = \App\Models\Product::all();
                         </button>
                     </div>
                     <div class="accordion-body open">
-                        <p>{{ ContentHelper::get('advantage_1_desc', 'Diproduksi oleh UMKM lokal Banyumas dengan bahan berkualitas dan cita rasa autentik yang terpercaya.') }}</p>
+                        <p><?php echo e(ContentHelper::get('advantage_1_desc', 'Diproduksi oleh UMKM lokal Banyumas dengan bahan berkualitas dan cita rasa autentik yang terpercaya.')); ?></p>
                     </div>
                 </div>
                 
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div class="accordion-title">{{ ContentHelper::get('advantage_2_title', 'Harga Terjangkau') }}</div>
+                        <div class="accordion-title"><?php echo e(ContentHelper::get('advantage_2_title', 'Harga Terjangkau')); ?></div>
                         <button class="accordion-toggle">
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"></path>
@@ -151,13 +149,13 @@ $products = \App\Models\Product::all();
                         </button>
                     </div>
                     <div class="accordion-body">
-                        <p>{{ ContentHelper::get('advantage_2_desc', 'Harga bersahabat untuk semua kalangan dengan kualitas terjamin.') }}</p>
+                        <p><?php echo e(ContentHelper::get('advantage_2_desc', 'Harga bersahabat untuk semua kalangan dengan kualitas terjamin.')); ?></p>
                     </div>
                 </div>
                 
                 <div class="accordion-item">
                     <div class="accordion-header">
-                        <div class="accordion-title">{{ ContentHelper::get('advantage_3_title', 'Lengkap & Terpercaya') }}</div>
+                        <div class="accordion-title"><?php echo e(ContentHelper::get('advantage_3_title', 'Lengkap & Terpercaya')); ?></div>
                         <button class="accordion-toggle">
                             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m7-7H5"></path>
@@ -165,7 +163,7 @@ $products = \App\Models\Product::all();
                         </button>
                     </div>
                     <div class="accordion-body">
-                        <p>{{ ContentHelper::get('advantage_3_desc', 'Koleksi produk terlengkap dan telah dipercaya oleh ribuan pelanggan.') }}</p>
+                        <p><?php echo e(ContentHelper::get('advantage_3_desc', 'Koleksi produk terlengkap dan telah dipercaya oleh ribuan pelanggan.')); ?></p>
                     </div>
                 </div>
             </div>
@@ -180,25 +178,25 @@ $products = \App\Models\Product::all();
         <h2 class="section-title">3 Produk<br>Terbaik Kami</h2>
         
         <div class="products-grid">
-            @foreach($topProducts as $product)
-                <a href="{{ route('product.show', $product->id) }}" class="product-card">
+            <?php $__currentLoopData = $topProducts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <a href="<?php echo e(route('product.show', $product->id)); ?>" class="product-card">
                     <div class="image-card product-card-image">
-                        @if($product->image)
-                            <img src="/{{ $product->image }}" alt="{{ $product->name }}" class="product-image">
-                        @else
-                            <img src="https://placehold.co/400x300/CD853F/white?text={{ urlencode($product->name) }}" alt="{{ $product->name }}" class="product-image">
-                        @endif
+                        <?php if($product->image): ?>
+                            <img src="/<?php echo e($product->image); ?>" alt="<?php echo e($product->name); ?>" class="product-image">
+                        <?php else: ?>
+                            <img src="https://placehold.co/400x300/CD853F/white?text=<?php echo e(urlencode($product->name)); ?>" alt="<?php echo e($product->name); ?>" class="product-image">
+                        <?php endif; ?>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Makanan Tradisional</div>
-                        <h3 class="product-name">{{ $product->name }}</h3>
+                        <h3 class="product-name"><?php echo e($product->name); ?></h3>
                         <div class="product-rating">
                             <span class="stars">★★★★★</span>
                         </div>
-                        <div class="product-price">Rp{{ number_format($product->price,0,',','.') }}</div>
+                        <div class="product-price">Rp<?php echo e(number_format($product->price,0,',','.')); ?></div>
                     </div>
                 </a>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
     </div>
 </section>
@@ -210,24 +208,24 @@ $products = \App\Models\Product::all();
         <h2 class="section-title">Buah tangan khas Banyumas</h2>
         
         <div class="products-grid-4" id="allProductsGrid">
-            @forelse($products as $product)
-                <a href="{{ route('product.show', $product->id) }}" class="product-card-small all-product-item">
-                    @if($product->image)
-                        <img src="/{{ $product->image }}" alt="{{ $product->name }}" class="product-image">
-                    @else
-                        <img src="https://placehold.co/300x250/FFD700/333?text={{ urlencode($product->name) }}" alt="{{ $product->name }}" class="product-image">
-                    @endif
+            <?php $__empty_1 = true; $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                <a href="<?php echo e(route('product.show', $product->id)); ?>" class="product-card-small all-product-item">
+                    <?php if($product->image): ?>
+                        <img src="/<?php echo e($product->image); ?>" alt="<?php echo e($product->name); ?>" class="product-image">
+                    <?php else: ?>
+                        <img src="https://placehold.co/300x250/FFD700/333?text=<?php echo e(urlencode($product->name)); ?>" alt="<?php echo e($product->name); ?>" class="product-image">
+                    <?php endif; ?>
                     <div class="product-info">
-                        <h3 class="product-name">{{ $product->name }}</h3>
+                        <h3 class="product-name"><?php echo e($product->name); ?></h3>
                         <div class="product-rating">
                             <span class="stars">★★★★★</span>
                         </div>
-                        <div class="product-price">Rp{{ number_format($product->price,0,',','.') }}</div>
+                        <div class="product-price">Rp<?php echo e(number_format($product->price,0,',','.')); ?></div>
                     </div>
                 </a>
-            @empty
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <div>Tidak ada produk tersedia.</div>
-            @endforelse
+            <?php endif; ?>
         </div>
         
         <!-- Pagination -->
@@ -399,9 +397,9 @@ $products = \App\Models\Product::all();
                             <label>(Opsional) Produk yang dibeli</label>
                             <select name="product" style="width: 100%; padding: 12px 16px; border: 2px solid #e5e7eb; border-radius: 12px; font-size: 14px; font-family: inherit; background: white;">
                                 <option value="">-- Pilih Produk --</option>
-                                @foreach($products as $product)
-                                    <option value="{{ $product->name }}">{{ $product->name }}</option>
-                                @endforeach
+                                <?php $__currentLoopData = $products; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $product): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <option value="<?php echo e($product->name); ?>"><?php echo e($product->name); ?></option>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select>
                         </div>
                         <div class="form-group">
@@ -422,7 +420,7 @@ $products = \App\Models\Product::all();
             
             <!-- Image Display -->
             <div class="testimonial-image">
-                <img src="{{ asset('images/toko/foto6.png') }}" alt="Display Produk">
+                <img src="<?php echo e(asset('images/toko/foto6.png')); ?>" alt="Display Produk">
             </div>
         </div>
     </div>
@@ -432,20 +430,20 @@ $products = \App\Models\Product::all();
 <section class="cta-section" id="kontak">
     <div class="container">
         <div class="cta-overlay">
-            <h2>{{ ContentHelper::get('cta_title', 'Cari oleh-oleh yang berkesan?') }}</h2>
-            <p>{{ ContentHelper::get('cta_subtitle', 'Kami punya pilihan istimewa untuk dibawa pulang.') }}</p>
+            <h2><?php echo e(ContentHelper::get('cta_title', 'Cari oleh-oleh yang berkesan?')); ?></h2>
+            <p><?php echo e(ContentHelper::get('cta_subtitle', 'Kami punya pilihan istimewa untuk dibawa pulang.')); ?></p>
             
             <div class="cta-buttons">
                 <a href="https://wa.me/628112648830?text=Halo%20Galeri%20Eco%2021" target="_blank" class="btn-whatsapp">
-                    <img class="btn-icon" src="{{ asset('images/icon/whatsapp.png') }}" alt="WhatsApp">
+                    <img class="btn-icon" src="<?php echo e(asset('images/icon/whatsapp.png')); ?>" alt="WhatsApp">
                     WhatsApp
                 </a>
-                <a href="{{ ContentHelper::get('social_shopee_link', 'https://shopee.co.id') }}" target="_blank" rel="noopener noreferrer" class="btn-shopee">
+                <a href="<?php echo e(ContentHelper::get('social_shopee_link', 'https://shopee.co.id')); ?>" target="_blank" rel="noopener noreferrer" class="btn-shopee">
                     <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0c0-1.1.9-2 2-2s2 .9 2 2h-4zm6 14H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h8v12z"/></svg>
                     Shopee
                 </a>
                 <a href="https://www.tokopedia.com/tokoeco21" target="_blank" class="btn-tokopedia">
-                    <img class="btn-icon" src="{{ asset('images/icon/tokopedia.png') }}" alt="Tokopedia">
+                    <img class="btn-icon" src="<?php echo e(asset('images/icon/tokopedia.png')); ?>" alt="Tokopedia">
                     Tokopedia
                 </a>
             </div>
@@ -460,36 +458,36 @@ $products = \App\Models\Product::all();
             <div class="follow-text">
                 <h2>Ikuti Eco 21 dan dapatkan update produk terbaru.</h2>
                 <div class="follow-icons">
-                    <a href="{{ ContentHelper::get('social_tiktok_link', 'https://www.tiktok.com') }}" target="_blank" class="follow-icon follow-icon-tiktok" title="TikTok">
-                        <img src="{{ asset('images/icon/tiktok.png') }}" alt="TikTok">
+                    <a href="<?php echo e(ContentHelper::get('social_tiktok_link', 'https://www.tiktok.com')); ?>" target="_blank" class="follow-icon follow-icon-tiktok" title="TikTok">
+                        <img src="<?php echo e(asset('images/icon/tiktok.png')); ?>" alt="TikTok">
                     </a>
-                    <a href="{{ ContentHelper::get('social_whatsapp_link', 'https://wa.me/6281234567890') }}" target="_blank" class="follow-icon follow-icon-whatsapp" title="WhatsApp">
-                        <img src="{{ asset('images/icon/whatsapp.png') }}" alt="WhatsApp">
+                    <a href="<?php echo e(ContentHelper::get('social_whatsapp_link', 'https://wa.me/6281234567890')); ?>" target="_blank" class="follow-icon follow-icon-whatsapp" title="WhatsApp">
+                        <img src="<?php echo e(asset('images/icon/whatsapp.png')); ?>" alt="WhatsApp">
                     </a>
-                    <a href="{{ ContentHelper::get('social_tokopedia_link', 'https://www.tokopedia.com') }}" target="_blank" class="follow-icon follow-icon-tokopedia" title="Tokopedia">
-                        <img src="{{ asset('images/icon/tokopedia.png') }}" alt="Tokopedia">
+                    <a href="<?php echo e(ContentHelper::get('social_tokopedia_link', 'https://www.tokopedia.com')); ?>" target="_blank" class="follow-icon follow-icon-tokopedia" title="Tokopedia">
+                        <img src="<?php echo e(asset('images/icon/tokopedia.png')); ?>" alt="Tokopedia">
                     </a>
-                    <a href="{{ ContentHelper::get('social_instagram_link', 'https://www.instagram.com') }}" target="_blank" class="follow-icon follow-icon-instagram" title="Instagram">
+                    <a href="<?php echo e(ContentHelper::get('social_instagram_link', 'https://www.instagram.com')); ?>" target="_blank" class="follow-icon follow-icon-instagram" title="Instagram">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.015-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/></svg>
                     </a>
-                    <a href="{{ ContentHelper::get('social_linkedin_link', 'https://www.linkedin.com') }}" target="_blank" class="follow-icon follow-icon-linkedin" title="LinkedIn">
+                    <a href="<?php echo e(ContentHelper::get('social_linkedin_link', 'https://www.linkedin.com')); ?>" target="_blank" class="follow-icon follow-icon-linkedin" title="LinkedIn">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                     </a>
-                    <a href="{{ ContentHelper::get('social_shopee_link', 'https://shopee.co.id') }}" target="_blank" class="follow-icon follow-icon-shopee" title="Shopee">
+                    <a href="<?php echo e(ContentHelper::get('social_shopee_link', 'https://shopee.co.id')); ?>" target="_blank" class="follow-icon follow-icon-shopee" title="Shopee">
                         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 6h-2c0-2.21-1.79-4-4-4s-4 1.79-4 4H6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0c0-1.1.9-2 2-2s2 .9 2 2h-4zm6 14H6V8h2v2c0 .55.45 1 1 1s1-.45 1-1V8h8v12z"/></svg>
                     </a>
                 </div>
             </div>
             <div class="follow-image">
                 <div class="image-card follow-card">
-                    <img src="{{ ContentHelper::getImage('social_follow_image', asset('images/toko/foto_depan_toko.jpg')) }}" alt="Foto Depan Toko Galeri Eco 21">
+                    <img src="<?php echo e(ContentHelper::getImage('social_follow_image', asset('images/toko/foto_depan_toko.jpg'))); ?>" alt="Foto Depan Toko Galeri Eco 21">
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
 <!-- AI Chatbot -->
 <div class="ai-chatbot-toggle" onclick="toggleChatbot()">
@@ -615,3 +613,5 @@ function getBotResponse(type) {
     showGreetingWithDelay();
 }
 </script>
+
+<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\eco21-main\resources\views/welcome.blade.php ENDPATH**/ ?>

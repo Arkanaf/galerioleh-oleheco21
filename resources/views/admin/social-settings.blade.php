@@ -84,6 +84,32 @@
                     <small class="error-text">{{ $message }}</small>
                 @enderror
             </div>
+
+            <div class="setting-card">
+                <div class="setting-header">
+                    <h3>💼 LinkedIn</h3>
+                    <span class="platform-badge linkedin">LinkedIn</span>
+                </div>
+                <input type="url" name="social_linkedin_link" class="form-control @error('social_linkedin_link') is-invalid @enderror" 
+                       placeholder="https://www.linkedin.com/company/..."
+                       value="{{ old('social_linkedin_link', $linkedin ?? '') }}">
+                @error('social_linkedin_link')
+                    <small class="error-text">{{ $message }}</small>
+                @enderror
+            </div>
+
+            <div class="setting-card">
+                <div class="setting-header">
+                    <h3>🛒 Shopee</h3>
+                    <span class="platform-badge shopee">Shopee</span>
+                </div>
+                <input type="url" name="social_shopee_link" class="form-control @error('social_shopee_link') is-invalid @enderror" 
+                       placeholder="https://shopee.co.id/..."
+                       value="{{ old('social_shopee_link', $shopee ?? '') }}">
+                @error('social_shopee_link')
+                    <small class="error-text">{{ $message }}</small>
+                @enderror
+            </div>
         </div>
 
         <div class="form-actions">
@@ -172,6 +198,14 @@
 
     .platform-badge.instagram {
         background: linear-gradient(135deg, #E4405F, #833AB4);
+    }
+
+    .platform-badge.linkedin {
+        background: linear-gradient(135deg, #0A66C2, #004182);
+    }
+
+    .platform-badge.shopee {
+        background: linear-gradient(135deg, #EE4D2D, #D73211);
     }
 
     .form-control {

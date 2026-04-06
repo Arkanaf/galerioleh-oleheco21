@@ -146,8 +146,10 @@ class SiteContentController extends Controller
         $whatsapp = SiteContent::getValue('social_whatsapp_link', 'https://wa.me/6281234567890');
         $tokopedia = SiteContent::getValue('social_tokopedia_link', 'https://www.tokopedia.com');
         $instagram = SiteContent::getValue('social_instagram_link', 'https://www.instagram.com');
+        $linkedin = SiteContent::getValue('social_linkedin_link', 'https://www.linkedin.com');
+        $shopee = SiteContent::getValue('social_shopee_link', 'https://shopee.co.id');
 
-        return view('admin.social-settings', compact('tiktok', 'whatsapp', 'tokopedia', 'instagram'));
+        return view('admin.social-settings', compact('tiktok', 'whatsapp', 'tokopedia', 'instagram', 'linkedin', 'shopee'));
     }
 
     /**
@@ -160,6 +162,8 @@ class SiteContentController extends Controller
             'social_whatsapp_link' => 'nullable|url|max:500',
             'social_tokopedia_link' => 'nullable|url|max:500',
             'social_instagram_link' => 'nullable|url|max:500',
+            'social_linkedin_link' => 'nullable|url|max:500',
+            'social_shopee_link' => 'nullable|url|max:500',
         ]);
 
         $fields = [
@@ -167,6 +171,8 @@ class SiteContentController extends Controller
             'social_whatsapp_link' => $request->input('social_whatsapp_link'),
             'social_tokopedia_link' => $request->input('social_tokopedia_link'),
             'social_instagram_link' => $request->input('social_instagram_link'),
+            'social_linkedin_link' => $request->input('social_linkedin_link'),
+            'social_shopee_link' => $request->input('social_shopee_link'),
         ];
 
         foreach ($fields as $key => $value) {
